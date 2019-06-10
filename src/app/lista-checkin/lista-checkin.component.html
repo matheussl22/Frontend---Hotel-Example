@@ -1,0 +1,32 @@
+<div class="card">
+    <div class="card-body">
+        <p class=text-center>Filtros</p>
+        <input type="text" placeholder="Pessoas ainda presentes" #aindaPresente class="form-control">
+        <input type="text" placeholder="Pessoas que já deixaram hotel" #deixaramHotel class="form-control">
+        <button (click)="filtrarList(aindaPresente, deixaramHotel)" class="btn seniorColor">
+          Filtrar
+        </button>
+    </div>
+  <div class="card-body">
+    <p class=text-center>Consulta Checkin</p>
+      <table class="table table-striped">
+          <thead>
+            <th *ngFor="let col of columns">
+              {{col}}
+            </th>
+          </thead>
+        <tbody>
+        <tr *ngFor="let checkin of checkins | paginate: { itemsPerPage: 5, currentPage: paginaAtual }; let i = index">
+          <th>{{checkin.pessoa.nome}}</th>
+          <th>{{checkin.pessoa.documento}}</th>
+          <th>{{checkin.valorTotal}}</th>
+          <button (click)="deleteCheckin(checkin)" class="btn btn-danger">
+            Delete
+          </button>
+        </tr>
+        </tbody>
+      </table>
+    <pagination-controls (pageChange)="paginaAtual = $event" previousLabel="Anterior" nextLabel="Próximo"></pagination-controls>
+  </div>
+</div>
+

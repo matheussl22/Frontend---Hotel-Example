@@ -1,0 +1,23 @@
+<div class="container p-4">
+  <div class="row">
+    <div class="col-md-5 text-center">
+      <div class="card">
+        <div class="card-body">
+          <p>Incluir Pessoa</p>
+          <form (submit)="addPessoa(newNome, newDocumento, newTelefone)">
+          <div class="form-group">
+            <input type="text" placeholder="Nome" #newNome class="form-control" required>
+            <input type="text" placeholder="Documento" #newDocumento class="form-control" required>
+            <input type="text" placeholder="Telefone" #newTelefone class="form-control" >
+          </div>
+            <button type="submit" class="btn btn-primary btn-block seniorColor">salvar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-5 text-center">
+      <app-lista-pessoas></app-lista-pessoas>
+    </div>
+  </div>
+</div>
+
