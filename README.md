@@ -1,4 +1,4 @@
-# Example Senior
+# Example Frontend
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
 
@@ -10,7 +10,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Authors
+## Author
 * **Matheus Warmeling Matias** 
     - [GitHub](https://github.com/matheussl22)
     - [Linkedin](https://www.linkedin.com/in/matheus-warmeling-matias-293aa457/)
