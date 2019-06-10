@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Checkin} from '../models/checkin.model';
 import {CheckinService} from '../services/checkin.service';
+import {PessoaService} from '../services/pessoa.service';
+import {Pessoa} from '../models/pessoa.model';
 
 @Component({
   selector: 'app-lista-checkin',
@@ -12,9 +14,12 @@ export class ListaCheckinComponent implements OnInit {
   public paginaAtual = 0;
   columns: String[];
   checkins: Checkin[];
-  constructor(public checkinService: CheckinService) { }
+  private pessoas: Pessoa[];
+  constructor(public pessoaService: PessoaService,
+              public checkinService: CheckinService) { }
 
   ngOnInit() {
+      this.pessoas = this.pessoaService.getPessoas();
     this.columns = ['Nome', 'Documento', 'Valor Gasto (R$)'];
     this.checkins = this.checkinService.getCheckins();
   }

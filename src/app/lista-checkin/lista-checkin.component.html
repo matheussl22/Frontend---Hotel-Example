@@ -1,8 +1,8 @@
 <div class="card">
     <div class="card-body">
         <p class=text-center>Filtros</p>
-        <input type="text" placeholder="Pessoas ainda presentes" #aindaPresente class="form-control">
-        <input type="text" placeholder="Pessoas que já deixaram hotel" #deixaramHotel class="form-control">
+        <input type="text" placeholder="Pessoas ainda presentes" #aindaPresente class="form-control" list="pessoas">
+        <input type="text" placeholder="Pessoas que já deixaram hotel" #deixaramHotel class="form-control" list="pessoas">
         <button (click)="filtrarList(aindaPresente, deixaramHotel)" class="btn seniorColor">
           Filtrar
         </button>
@@ -30,3 +30,6 @@
   </div>
 </div>
 
+<datalist id="pessoas" >
+    <option *ngFor="let option of pessoas" [value]="option.nome" >{{option.nome}}</option>
+</datalist>

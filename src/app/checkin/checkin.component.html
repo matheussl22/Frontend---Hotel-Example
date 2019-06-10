@@ -8,7 +8,7 @@
           <div class="form-group">
             <input type="datetime-local" placeholder="Data/hora de entrada" #newDataEntrada class="form-control" required>
             <input type="datetime-local" placeholder="Data/hora de saída" #newDataSaida class="form-control" required>
-            <input type="text" placeholder="Nome Pessoa" #pessoa class="form-control" required list="cidades">
+            <input type="text" placeholder="Nome Pessoa" #pessoa class="form-control" required list="pessoas">
             <input type="checkbox" checked="checked" #newAdicionarVeiculo /> possui veiculo<br>
           </div>
             <button type="submit" class="btn btn-primary btn-block seniorColor">salvar</button>
@@ -22,6 +22,6 @@
   </div>
 </div>
 
-<datalist id="cidades" >
+<datalist id="pessoas" >
   <option *ngFor="let option of pessoas" [value]="option.nome" >{{option.nome}}</option>
 </datalist>
