@@ -42,13 +42,13 @@ export class CheckinComponent implements OnInit {
 
   calcValue(checkin: Checkin) {
     this.calcCounts(checkin.dataEntrada, checkin.dataSaida);
-    const valorExtra = this.calcExtra(checkin.dataSaida);
+    this.calcExtra(checkin.dataSaida);
     const valorSemana = this.calcDiariaWeek();
     const valorFinalSemana = this.calcDiariaEndweek();
     const valorSemanaCarro = this.calcCarWeek(checkin.adicionalVeiculo);
     const valorFinalSemanaCarro = this.calcCarEndweek(checkin.adicionalVeiculo);
 
-    return valorSemana + valorFinalSemana + valorSemanaCarro + valorFinalSemanaCarro + valorExtra;
+    return valorSemana + valorFinalSemana + valorSemanaCarro + valorFinalSemanaCarro;
   }
 
   calcDiariaEndweek() {
@@ -77,7 +77,11 @@ export class CheckinComponent implements OnInit {
     const valorExtraHours = saida.getHours() >= 16;
     const valorExtraMinutes = saida.getMinutes() > 30;
     if (valorExtraHours && valorExtraMinutes) {
-      this.countweek++;
+      if (this.isEndWeek(saida)) {
+        this.countendweek++;
+      } else {
+        this.countweek++;
+      }
       return 0;
     }
     return 0;
