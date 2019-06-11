@@ -77,7 +77,8 @@ export class CheckinComponent implements OnInit {
     const valorExtraHours = saida.getHours() >= 16;
     const valorExtraMinutes = saida.getMinutes() > 30;
     if (valorExtraHours && valorExtraMinutes) {
-      return (this.countendweek + this.countweek) + 1;
+      this.countweek++;
+      return 0;
     }
     return 0;
   }
