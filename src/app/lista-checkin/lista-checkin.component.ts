@@ -32,17 +32,17 @@ export class ListaCheckinComponent implements OnInit {
 
   filtrarList(aindaPresentes: HTMLInputElement, deixaramHotel: HTMLInputElement) {
       this.checkins = this.checkinService.getCheckins();
-      if (aindaPresentes.value !== '') {
+      if (aindaPresentes.checked) {
           this.checkins = this.checkins
               .filter(function(el) {
-              return (el.pessoa.nome.indexOf(aindaPresentes.value) > -1 && new Date(el.dataSaida) > new Date());
+              return new Date(el.dataSaida) > new Date();
               });
       }
 
-      if (deixaramHotel.value !== '') {
+      if (deixaramHotel.checked) {
           this.checkins = this.checkins
               .filter(function(el) {
-                  return (el.pessoa.nome.indexOf(deixaramHotel.value) > -1 && new Date(el.dataSaida) <= new Date());
+                  return new Date(el.dataSaida) <= new Date();
               });
       }
 

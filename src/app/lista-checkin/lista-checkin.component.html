@@ -1,14 +1,13 @@
 <div class="card">
     <div class="card-body">
-        <p class=text-center>Filtros</p>
-        <input type="text" placeholder="Pessoas ainda presentes" #aindaPresente class="form-control" list="pessoas">
-        <input type="text" placeholder="Pessoas que já deixaram hotel" #deixaramHotel class="form-control" list="pessoas">
+      <p class=text-center>Consulta Checkin</p>
+        <input type="checkbox" #aindaPresente #newAdicionarVeiculo /> Pessoas ainda presentes<br>
+        <input type="checkbox" #deixaramHotel #newAdicionarVeiculo /> Pessoas que já deixaram hotel<br>
         <button (click)="filtrarList(aindaPresente, deixaramHotel)" class="btn seniorColor">
           Filtrar
         </button>
     </div>
   <div class="card-body">
-    <p class=text-center>Consulta Checkin</p>
       <table class="table table-striped">
           <thead>
             <th *ngFor="let col of columns">
